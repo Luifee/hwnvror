@@ -1,13 +1,9 @@
-<html>
-  <head>
-    <title>Ciao!</title>
-  </head>
-  <body>
-    <center>
-      <font size=+2">
-        <p>Hola! It's <%= Time.now %></p>
-        <p><%= link_to 'Hello!', welcome_say_hello_path %></p>
-      </font>
-    </center>
-  </body>
-</html>
+<% provide :title, "RoR 新手村" %>
+
+<center>
+  <font size="+2">
+    <p>Hola! 現在時間是 <%= Time.now %></p>
+    <p>Lv.2 <%= link_to "和世界問好", say_path %></p>
+    <p>Lv.3 <%= link_to "訂閱電子報", "/sub" %></p>
+  </font>
+</center>

@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
-  def say
-  end
   def index
+    render layout: "ind"
+  end
+  def say
   end
 end
