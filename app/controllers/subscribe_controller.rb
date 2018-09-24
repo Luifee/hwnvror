@@ -2,6 +2,11 @@ class SubscribeController < ApplicationController
 
   def index
     @subscribes = Subscribe.all
+
+    respond_to do |format|
+      format.html
+      format.txt {render text: @subscribes.to_txt }
+  end
   end
 
   def new
@@ -9,7 +14,7 @@ class SubscribeController < ApplicationController
   end
 
   def create
-    @subscribes = Subscribe.new(subscribes_params)
+    @subscribes = Subscribe.new(subscribe_params)
     if @subscribes.save
       redirect_to "/success"
     else
@@ -17,8 +22,19 @@ class SubscribeController < ApplicationController
     end
   end
 
+  def edit
+    @subscribe = Subscribe.find(params[:id])
+    redirect_to "/subscribe/edit(subscribe)"
+  end
+
+  def destroy
+    @subscribe = Subscribe.find(params[:id])
+    @subscribe.destroy if @subscribe
+    redirect_to "/subscribe"
+  end
+
   private
-  def subscribes_params
+  def subscribe_params
     params.require(:subscribe).permit(:name, :email)
   end
 end
