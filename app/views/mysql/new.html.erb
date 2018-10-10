@@ -1,0 +1,16 @@
+<% provide :title, "Lv.4 - 訂閱電子報(MySQL)" %>
+
+<h1>訂閱電子報</h1>
+
+<%= form_for @mysqls, url: {action: "create"} do |f| %>
+
+  <%= f.label :name, "姓名/暱稱" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, "Email信箱" %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "確定訂閱" %>
+  <br />
+  <%= notice %>
+<% end %>

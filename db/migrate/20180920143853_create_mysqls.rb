@@ -1,6 +1,6 @@
-class CreateSubscribes < ActiveRecord::Migration[5.2]
+class CreateMysqls < ActiveRecord::Migration[5.2]
   def change
-    create_table :subscribes do |t|
+    create_table :mysqls do |t|
       t.string :name
       t.string :email
 

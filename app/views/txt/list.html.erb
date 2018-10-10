@@ -1,0 +1,24 @@
+<h1>Email清單</h1>
+
+<div class="col-sm-12" style="padding: 0 10px;">
+	<%= form_tag txt_destroy_multi_path, method: :delete do %>
+		<%= submit_tag("刪除", data: {confirm: "是否確認刪除？"}) %>
+		<%= notice %>
+	<table class="table" data-toggle="table">
+		<thead>
+			<tr>
+				<th>勾選</th>
+				<th data-sortable="true" data-field="email">Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% File.open("tmp/emaildump.txt").each do |line| %>
+				<tr>
+					<td><%= check_box_tag "des#{line}", line, class: "des" %></td>
+					<td><%= line.gsub(/; /, "") %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+</div>

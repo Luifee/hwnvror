@@ -1,0 +1,13 @@
+<% provide :title, "Lv.3 - 撞牆不息的訂閱電子報(txt)" %>
+
+<h1>訂閱電子報(txt)</h1>
+
+<%= form_tag :action => "create" do %>
+	<br />
+  <%= label_tag(:email, "Email信箱") %>
+  <%= text_field_tag(:email) %>
+
+  <%= submit_tag("確定訂閱") %>
+  <br />
+  <%= notice %>
+<% end %>

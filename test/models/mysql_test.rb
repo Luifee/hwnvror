@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscribeTest < ActiveSupport::TestCase
+class MysqlTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

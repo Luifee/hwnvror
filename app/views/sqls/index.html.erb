@@ -1,0 +1,26 @@
+<% provide :title, "Email清單" %>
+
+<h1>Email清單</h1>
+
+<div class="col-sm-12" style="padding: 0 10px;">
+  <table class="table" data-toggle="table">
+    <thead>
+      <tr>
+        <td>選項</td>
+        <td>姓名/暱稱</td>
+        <td>Email</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sqls.each do |sql| %>
+      <tr>
+        <td><%= link_to "刪除", sql_path(sql), method: "delete", data: {confirm: "確認刪除？"} %></td>
+        <td><%= sql.name %></td>
+        <td><%= sql.email %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

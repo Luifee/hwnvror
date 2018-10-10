@@ -1,8 +1,8 @@
-<% provide :title, "Lv.3 - 撞牆不息的訂閱電子報" %>
+<% provide :title, "Lv.4 - 訂閱電子報(MySQL)" %>
 
 <h1>訂閱電子報</h1>
 
-<%= form_for @subscribes, url: {action: "create"} do |f| %>
+<%= form_for @sql, url: {action: "create"} do |f| %>
 
   <%= f.label :name, "姓名/暱稱" %>
   <%= f.text_field :name %>
