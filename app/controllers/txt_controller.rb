@@ -11,26 +11,22 @@ class TxtController < ApplicationController
 		File.open("tmp/cp.txt", "wb") do |dup|
                         File.open("tmp/emaildump.txt", "rb") do |copy|
                                 while buff = copy.read(4096)
-                                dup.write(buff)
-                                dup.close
+					dup.write(buff)
                                 end
                         end
                 end
 	end
 
 	def destroy_multi
-		copy
-		params[:des].to_i.each do |raw|
-			File.open("tmp/emaildump.txt", "wb") do |renew|
-				File.open("tmp/cp.txt", "rb")  do |base|
-					while buffr = base.read(4096)
-					renew.write(raw)
-					renew.close
-					end
-				end
-			end
-		end
-		redirect_to "/txt/list/", notice: "指定email已刪除"
+#		copy
+		raw = params[:name]
+		redirect_to "/txt/list/", notice: "#{raw}"
+#		renew = File.open("tmp/emaildump.txt", "wb")
+#		base = File.open("tmp/cp.txt", "rb")
+#		while buffr = base.read(4096)
+#			renew.write(buffr) unless raw
+#		end
+#		redirect_to "/txt/list/", notice: "指定email已刪除"
 	end
 
 	def create

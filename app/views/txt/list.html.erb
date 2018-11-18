@@ -12,10 +12,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% File.open("tmp/emaildump.txt").each do |line| %>
+			<% File.open("tmp/emaildump.txt").each do |email| %>
+				<% line = Digest::MD5.hexdigest(email) %>
 				<tr>
-					<td><%= check_box_tag "des#{line}", line, class: "des" %></td>
-					<td><%= line.gsub(/; /, "") %></td>
+					<td><%= check_box_tag "#{line}", email %></td>
+					<td><%= email.gsub(/; /, "") %></td>
 				</tr>
 			<% end %>
 		</tbody>
