@@ -1,0 +1,31 @@
+<% provide :title, "Lv. 2.5.5 - 留言塗鴉牆" %>
+
+<h1>留言塗鴉牆</h1>
+
+<%= form_tag("/posts", method: "get") do |messages| %>
+	<br />
+	<%= label_tag (:qa), "將你現在的思緒濃縮成10個字，那會是：" %>
+	<br />
+	<%= text_field_tag (:qa), "<(￣︶￣)>", maxlength: 10, size: 30 %>
+	<%= submit_tag ("確定送出") %>
+<% end %>
+
+<br />
+
+<div class="col-sm-12" style="padding: 0 10px;">
+	<%= form_tag("/posts", multipart: true) do %>
+        <table class="table" data-toggle="table">
+                <thead>
+                        <tr>
+                                <th data-sortable="true" data-field="message">歷史訊息</th>
+                        </tr>
+                </thead>
+                <tbody>
+                                <tr>
+                                        <td><%= check_box_tag (:history) %></td>
+                                        <td><%= text_field_tag (:history) history %></td>
+                                </tr>
+			<% end %>
+                </tbody>
+        </table>
+</div>

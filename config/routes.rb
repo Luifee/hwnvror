@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root "welcome#index"
   get "/say/", to: "welcome#say"
 
+  get "/posts/", to: "posts#list"
+  delete "posts/", to: "posts#delete"
+  post "/posts/", to: "posts#create"
+
   get "/txt/", to: "txt#new"
   get "/txt/success/", to: "txt#success"
   get "/txt/list/", to: "txt#list"
