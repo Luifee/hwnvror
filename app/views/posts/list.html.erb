@@ -1,31 +1,32 @@
-<% provide :title, "Lv. 2.5.5 - 留言塗鴉牆" %>
+<% provide :title, "Lv. 2.5.5 - 塗鴉牆" %>
 
-<h1>留言塗鴉牆</h1>
+<h1>塗鴉牆</h1>
 
-<%= form_tag("/posts", method: "get") do |messages| %>
+<%= form_tag '/posts' do %>
 	<br />
-	<%= label_tag (:qa), "將你現在的思緒濃縮成10個字，那會是：" %>
+	<%= label_tag (:message), "將你現在的思緒濃縮成10個字，那會是：" %>
 	<br />
-	<%= text_field_tag (:qa), "<(￣︶￣)>", maxlength: 10, size: 30 %>
+	<%= text_field_tag (:message), "(￣︶￣)?", maxlength: 10, size: 30 %>
 	<%= submit_tag ("確定送出") %>
 <% end %>
 
 <br />
-
+<%= form_tag '/posts/del' do %>
 <div class="col-sm-12" style="padding: 0 10px;">
-	<%= form_tag("/posts", multipart: true) do %>
-        <table class="table" data-toggle="table">
-                <thead>
-                        <tr>
+	<table class="table" data-toggle="table">
+		<thead>
+			<tr>
+				<th>勾選</th>
                                 <th data-sortable="true" data-field="message">歷史訊息</th>
                         </tr>
                 </thead>
-                <tbody>
+		<tbody>
+			<%- @posts.each do |post| -%>
                                 <tr>
-                                        <td><%= check_box_tag (:history) %></td>
-                                        <td><%= text_field_tag (:history) history %></td>
+                                        <td><%= check_box_tag (del[], post(:message), false) %></td>
+                                        <td><%= post[:message] %></td>
                                 </tr>
-			<% end %>
-                </tbody>
+		</tbody>
+	<% end %><%- end -%>
         </table>
 </div>
