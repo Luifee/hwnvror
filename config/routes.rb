@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get "/say/", to: "welcome#say"
 
   get "/posts/", to: "posts#list"
-  post "posts/del", to: "posts#delete"
-  post "/posts/", to: "posts#create"
+  post "/posts/del", to: "posts#delete"
+  post "/posts/", to: "posts#list"
 
   get "/txt/", to: "txt#new"
   get "/txt/success/", to: "txt#success"

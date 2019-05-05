@@ -3,30 +3,37 @@
 <h1>塗鴉牆</h1>
 
 <%= form_tag '/posts' do %>
-	<br />
-	<%= label_tag (:message), "將你現在的思緒濃縮成10個字，那會是：" %>
-	<br />
-	<%= text_field_tag (:message), "(￣︶￣)?", maxlength: 10, size: 30 %>
-	<%= submit_tag ("確定送出") %>
-<% end %>
-
-<br />
+        <br />
+        <%= label_tag ':note', '留下你的訊息：' %>
+        <br />
+        <%= text_field_tag 'message' %>
+	<%= submit_tag '確定送出' %>
+	<table type="hidden">
+		<%- @posts.each do |post| -%>
+			<tr>
+				<td><%= hidden_field_tag 'prev[]', post[:message] %></td>
+			</tr>
+		<%- end -%>
+	</table>
+	<% end %>
+	<br /><br />
 <%= form_tag '/posts/del' do %>
 <div class="col-sm-12" style="padding: 0 10px;">
-	<table class="table" data-toggle="table">
-		<thead>
-			<tr>
-				<th>勾選</th>
+        <table border='1' class='table table-hover table-bordered' data-toggle="table">
+                <thead>
+                        <tr>
+				<th><%= submit_tag "刪除" %></th>
                                 <th data-sortable="true" data-field="message">歷史訊息</th>
                         </tr>
                 </thead>
-		<tbody>
+                <tbody>
 			<%- @posts.each do |post| -%>
                                 <tr>
-                                        <td><%= check_box_tag (del[], post(:message), false) %></td>
-                                        <td><%= post[:message] %></td>
+                                        <td><%= check_box_tag 'del[]', post[:id], false %></td>
+                                        <td><%= text_field_tag 'history[]', post[:message], :readonly => true %></td>
                                 </tr>
-		</tbody>
-	<% end %><%- end -%>
+                        <%- end -%>
+                </tbody>
+        <% end %>
         </table>
 </div>
