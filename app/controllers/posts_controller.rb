@@ -38,6 +38,6 @@ class PostsController < ApplicationController
 		end
                 @posts=[]
 		@posts.replace(@temp)
-		render "list"
+		render "list", layout: "apd"
 	end
 end

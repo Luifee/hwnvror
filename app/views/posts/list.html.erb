@@ -6,7 +6,7 @@
         <br />
         <%= label_tag ':note', '留下你的訊息：' %>
         <br />
-        <%= text_field_tag 'message' %>
+        <%= text_field_tag 'message', '', style:'width:50%' %>
 	<%= submit_tag '確定送出' %>
 	<table type="hidden">
 		<%- @posts.each do |post| -%>
@@ -19,7 +19,7 @@
 	<br /><br />
 <%= form_tag '/posts/del' do %>
 <div class="col-sm-12" style="padding: 0 10px;">
-        <table border='1' class='table table-hover table-bordered' data-toggle="table">
+        <table class='table-hover' data-toggle="table">
                 <thead>
                         <tr>
 				<th><%= submit_tag "刪除" %></th>
@@ -30,7 +30,7 @@
 			<%- @posts.each do |post| -%>
                                 <tr>
                                         <td><%= check_box_tag 'del[]', post[:id], false %></td>
-                                        <td><%= text_field_tag 'history[]', post[:message], :readonly => true %></td>
+                                        <td><%= text_field_tag 'history[]', post[:message], style:'width:80%', :readonly => true %></td>
                                 </tr>
                         <%- end -%>
                 </tbody>

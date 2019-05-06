@@ -1,20 +1,20 @@
 Rails.application.routes.draw do
   root "welcome#index"
-  get "/say/", to: "welcome#say"
+  get "/say", to: "welcome#say"
 
-  get "/posts/", to: "posts#list"
+  get "/posts", to: "posts#list"
   post "/posts/del", to: "posts#delete"
-  post "/posts/", to: "posts#list"
+  post "/posts", to: "posts#list"
 
-  get "/txt/", to: "txt#new"
-  get "/txt/success/", to: "txt#success"
-  get "/txt/list/", to: "txt#list"
-  delete "/txt/destroy_multi/", to: "txt#destroy_multi"
-  post "/txt/", to: "txt#create"
+  get "/txt", to: "txt#new"
+  get "/txt/success", to: "txt#success"
+  get "/txt/list", to: "txt#list"
+  post "/txt/delete", to: "txt#delete"
+  post "/txt", to: "txt#create"
 
   resources :sqls
-  get "/sqls/success/", to: "sqls#success"
+  get "/sqls/success", to: "sqls#success"
 
-  get "/bkto/", to: "bkto#index"
+  get "/bkto", to: "bkto#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

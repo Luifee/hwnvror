@@ -3,7 +3,7 @@
 <h1>Email清單</h1>
 
 <div class="col-sm-12" style="padding: 0 10px;">
-	<%= form_tag txt_destroy_multi_path, method: :delete do %>
+	<%= form_tag '/txt/delete' do %>
 		<%= submit_tag("刪除", data: {confirm: "是否確認刪除？"}) %>
 		<%= notice %>
 	<table class="table" data-toggle="table">
@@ -17,7 +17,7 @@
 			<% File.open("tmp/emaildump.txt").each do |email| %>
 				<% line = Digest::MD5.hexdigest(email) %>
 				<tr>
-					<td><%= check_box_tag "#{line}", email %></td>
+					<td><%= check_box_tag 'delete[]', "#{line}" %></td>
 					<td><%= email.gsub(/; /, "") %></td>
 				</tr>
 			<% end %>

@@ -4,29 +4,21 @@ class TxtController < ApplicationController
 		render layout: "apd"
 	end
 	
-	def new
-	end
-
-	def copy
-		File.open("tmp/cp.txt", "wb") do |dup|
-                        File.open("tmp/emaildump.txt", "rb") do |copy|
-                                while buff = copy.read(4096)
-					dup.write(buff)
-                                end
-                        end
-                end
-	end
-
-	def destroy_multi
-#		copy
-		raw = params[:name]
-		redirect_to "/txt/list/", notice: "#{raw}"
-#		renew = File.open("tmp/emaildump.txt", "wb")
-#		base = File.open("tmp/cp.txt", "rb")
-#		while buffr = base.read(4096)
-#			renew.write(buffr) unless raw
-#		end
-#		redirect_to "/txt/list/", notice: "指定email已刪除"
+	def delete
+		revision=[]
+		File.open("tmp/emaildump.txt", "r") do |base|
+			base.each_line do |line|
+				submerge = Digest::MD5.hexdigest(line)
+				unless params[:delete].include?(submerge)
+					revision.push(line)
+				end
+			end
+		end
+		print revision
+		renew=File.open("tmp/emaildump.txt", "w")
+		renew.puts(revision)
+		renew.close
+		redirect_to "/txt/list", notice: "指定email已刪除"
 	end
 
 	def create
