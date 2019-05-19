@@ -1,2 +1,0 @@
-class Sql < ApplicationRecord
-end

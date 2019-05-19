@@ -1,0 +1,11 @@
+<% provide :title, "Lv.4 - 招呼回頭客(session)" %>
+
+<h1>請問芳名</h1>
+<br />
+<p>你好！請問我該如何稱呼你？</p>
+<p>
+<%= form_tag('/bkto') do %>
+  <%= text_field_tag(:nickname) %>
+  <%= submit_tag("確定") %>
+<% end %>
+</p>

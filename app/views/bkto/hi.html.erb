@@ -1,0 +1,9 @@
+<% provide :title, "Lv.4 - 招呼回頭客(session)" %>
+
+<br />
+<h2>你好！<%= session[:nickname] %></h2>
+<p>
+  <%= form_tag('/bkto/del') do %>
+  <%= submit_tag("忘記我的名字", data: {confirm: "確定要清除暱稱？"}) %>
+<% end %>
+</p>
