@@ -2,14 +2,11 @@
 
 <h1>訂閱電子報</h1>
 <br />
-<%= form_for @sql, url: {action: "create"} do |f| %>
-
-  <%= f.label :name, "姓名/暱稱" %>
-  <%= f.text_field :name %>
-  <br />
+<%= form_for @sql do |f| %>
   <%= f.label :email, "Email信箱" %>
   <%= f.text_field :email %>
-  <br />
+  <%= f.hidden_field :timestamps, value: Time.now %>
+  <%= f.hidden_field :ip_address, value: request.remote_ip %>
   <%= f.submit "確定訂閱" %>
   <br />
   <%= notice %>

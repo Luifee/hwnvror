@@ -1,26 +1,28 @@
-<% provide :title, "Email清單" %>
+<% provide :title, "Lv. 4 Email清單(MySql)" %>
 
 <h1>Email清單</h1>
-
+<h3><%= notice %></h3>
+<%= form_tag '/sqls/delete' do %>
 <div class="col-sm-12" style="padding: 0 10px;">
   <table class="table" data-toggle="table">
     <thead>
       <tr>
-        <td>選項</td>
-        <td>姓名/暱稱</td>
+        <td><%= submit_tag "刪除", data: {confirm: "確認刪除？"}, class:"btn btn-danger btn-xs" %></td>
         <td>Email</td>
+	<td>訂閱時間</td>
+	<td>訂閱者IP</td>
       </tr>
     </thead>
     <tbody>
       <% @sqls.each do |sql| %>
       <tr>
-        <td><%= link_to "刪除", sql_path(sql), method: "delete", data: {confirm: "確認刪除？"} %></td>
-        <td><%= sql.name %></td>
+	<td><%= check_box_tag 'delete[]', sql.id %></td>
         <td><%= sql.email %></td>
+	<td><%= sql.timestamps %></td>
+	<td><%= sql.ip_address %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  <% end %>
 </div>
-
-

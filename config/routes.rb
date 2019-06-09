@@ -15,9 +15,13 @@ Rails.application.routes.draw do
   get "/bkto", to: "bkto#index"
   get "/bkto/hi", to: "bkto#hi"
   post "/bkto", to: "bkto#create"
-  post "bkto/del", to: "bkto#withdraw"
+  post "/bkto/del", to: "bkto#withdraw"
 
-  resources :sqls
+  get "/sqls", to: "sqls#new"
   get "/sqls/success", to: "sqls#success"
+  get "/sqls/list", to: "sqls#index"
+  get "/sqls/subscribed", to: "sqls#subscribed"
+  post "/sqls", to: "sqls#create"
+  post "/sqls/delete", to: "sqls#delete"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
