@@ -23,5 +23,14 @@ Rails.application.routes.draw do
   get "/sqls/subscribed", to: "sqls#subscribed"
   post "/sqls", to: "sqls#create"
   post "/sqls/delete", to: "sqls#delete"
+
+  get "/overall", to: "overall#index"
+  get "/overall/new", to: "overall#new"
+  get "/overall/hi", to: "overall#hi"
+  get "/overall/members", to: "overall#list"
+  get "/overall/success", to: "overall#success"
+  post "/overall", to: "overall#reg"
+  post "/overall/authorize/:id", to: "overall#authorize"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

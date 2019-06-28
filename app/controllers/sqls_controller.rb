@@ -23,7 +23,7 @@ class SqlsController < ApplicationController
 
   def delete
     params[:delete].each do |id|
-    Sql.find(id.to_i).destroy
+      Sql.find(id.to_i).destroy
     end
     redirect_to "/sqls/list", layout: "apd", notice: "Email已刪除"
   end
@@ -44,9 +44,4 @@ class SqlsController < ApplicationController
   def unique
 	  redirect_to "/sqls/subscribed"
   end
-
-  def subscribed
-	  render layout: "apd"
-  end
-
 end

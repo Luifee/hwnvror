@@ -1,0 +1,19 @@
+<% provide :title, "Lv.5 - 全端挑戰" %>
+
+<h1>帳號註冊</h1>
+<br />
+<%= form_for @site01 do |f| %>
+  <%= f.label :name, "暱稱" %>
+  <%= f.text_field :name %>
+  <%= f.label :email, "電子信箱" %>
+  <%= f.text_field :email %>
+  <%= f.label :birthday, "生日" %>
+  <%= f.text_field :birthday %>
+  <%= f.label :password, "密碼" %>
+  <%= f.text_field :password %>
+  <%= f.label :password_confirmation, "再打一次密碼" %>
+  <%= f.text_field :password_confirmation %>
+  <%= f.submit "確定送出" %>
+  <br />
+  <%= notice %>
+<% end %>

@@ -2,15 +2,14 @@
 
 <center>
   <font size="+1">
-	  <table class='table'>
+	  <table class="table" data-toggle="table">
 		  <tr><td>Hola! 現在時間是 <%= Time.now %></td></tr>
 		  <th>新手村作業</th>
 		  <tr><td>Lv.2 <%= link_to "和世界問好", say_path %></td></tr>
 		  <tr><td>Lv.2.5.5 <%= link_to "塗鴉牆", posts_path %></td></tr>
-		  <tr><td>Lv.3 <%= link_to "電子報訂閱(txt)", txt_path %>, <%=link_to "Email清單(txt)", "/txt/list" %></td></tr>
-		  <tr><td>Lv.4 <%= link_to "招呼回頭客(session)", bkto_path %></td></tr>
-		  <tr><td>Lv.4 <%= link_to "電子報訂閱(MySQL)", "/sqls" %>（工事中）</td></tr>
-		  <tr><td>Lv.5 傳說中的全端挑戰</td></tr></table>
+		  <tr><td>Lv.3 <%= link_to "電子報訂閱(txt)", txt_path %>, <%=link_to "Email清單", "/txt/list" %></td></tr>
+		  <tr><td>Lv.4 <%= link_to "招呼回頭客(session)", bkto_path %>,  <%= link_to "電子報訂閱(MySQL)", "/sqls" %>, <%=link_to "Email清單", "/sqls/list" %></td></tr>
+		  <tr><td>Lv.5 <%= link_to "傳說中的全端挑戰", "/overall" %>（工事中）</td></tr></table>
 
   </font>
 </center>
