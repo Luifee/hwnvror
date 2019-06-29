@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= yield :title %></title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<noscript>本頁面需允許JavaScript功能才可正常運行。</noscript>
+	</head>
+	<body>
+		<div class="container">
+			<%= yield %>
+			<br />
+			<%= link_to "回首頁", root_path %>
+		</div>
+	</body>
+</html>

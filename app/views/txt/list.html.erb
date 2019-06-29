@@ -4,12 +4,11 @@
 
 <div class="col-sm-12" style="padding: 0 10px;">
 	<%= form_tag '/txt/delete' do %>
-		<%= submit_tag("刪除", data: {confirm: "是否確認刪除？"}) %>
 		<%= notice %>
 	<table class="table" data-toggle="table">
 		<thead>
 			<tr>
-				<th>勾選</th>
+				<th><%= submit_tag("刪除", data: {confirm: "是否確認刪除？"}) %></th>
 				<th data-sortable="true" data-field="email">Email</th>
 			</tr>
 		</thead>

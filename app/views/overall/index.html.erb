@@ -3,8 +3,9 @@
 <center>
   <font size="+1">
 	  <table class='table'>
-		  <tr><td>你好! 新朋友</td></tr>
-		  <tr><td>請先<%= link_to "註冊帳號", "/site01/new" %>，才能使用本站的完整功能：）</td></tr></table>
+		  <tr><td>你好! 新朋友<br />請先<%= link_to "註冊帳號", "/overall/new" %>，才能使用本站的完整功能：）</td></tr>
+		  <tr><td>若已有帳號，請於此處登入：<br />
+				  <%= form_tag('/overall/login') do %>帳號：<%= text_field_tag(:name) %><br />密碼：<%= password_field_tag(:password) %><br /><%= submit_tag("登入") %><% end %></table>
 
   </font>
 </center>
