@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 				end
 			end
 		end
-		render layout: "apd"
+		render layout: "table"
         end
 
 	def delete
@@ -38,6 +38,6 @@ class PostsController < ApplicationController
 		end
                 @posts=[]
 		@posts.replace(@temp)
-		render "list", layout: "apd"
+		render "list", layout: "table"
 	end
 end

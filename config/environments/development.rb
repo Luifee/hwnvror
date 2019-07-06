@@ -31,10 +31,14 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
+  # 跟著[為你自己學Ruby on Rails]及[Rails實戰聖經]增加的設定
+  config.action_mailer.deliver_method = :smtp
+  config.action_mailer.default_url_options = { host: "http://140.121.80.184:3000" }
+  config.action_mailer.smtp_settings = config_for(:email).symbolize_keys
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

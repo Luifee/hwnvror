@@ -14,6 +14,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require datepicker-zh-TW
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.min.js
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

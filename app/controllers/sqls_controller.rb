@@ -4,20 +4,19 @@ class SqlsController < ApplicationController
 
   def index
     @sqls = Sql.all
-    render layout: "apd"
+    render layout: "table"
   end
 
   def new
     @sql = Sql.new
-    render layout: "apd"
   end
 
   def create
     @sql = Sql.new(sql_params)
     if @sql.save
-      redirect_to "/sqls/success", layout: "apd"
+      redirect_to "/sqls/success"
     else
-      redirect_to "/sqls", layout: "apd", notice: "請確認Email格式是否有誤，謝謝！"
+      redirect_to "/sqls", notice: "請確認Email格式是否有誤，謝謝！"
     end
   end
 
@@ -25,11 +24,10 @@ class SqlsController < ApplicationController
     params[:delete].each do |id|
       Sql.find(id.to_i).destroy
     end
-    redirect_to "/sqls/list", layout: "apd", notice: "Email已刪除"
+    redirect_to "/sqls/list", layout: "table", notice: "Email已刪除"
   end
 
   def subscribed
-	  render layout: "apd"
   end
 
   private

@@ -1,7 +1,7 @@
 class TxtController < ApplicationController
 
 	def list
-		render layout: "apd"
+		render layout: "table"
 	end
 	
 	def delete

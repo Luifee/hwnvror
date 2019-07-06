@@ -1,0 +1,16 @@
+development:
+        address: 'smtp.sendgrid.net',
+        port: 587,
+        domain: '140.121.80.184',
+        user_name: 'apikey',
+        password: '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',
+        authentication: 'plain',
+        enable_starttls_auto: true
+production:
+        address: 'smtp.sendgrid.net',
+        port: 587,
+        domain: '140.121.80.184',
+        user_name: 'apikey',
+        password: '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',
+        authentication: 'plain',
+        enable_starttls_auto: true
