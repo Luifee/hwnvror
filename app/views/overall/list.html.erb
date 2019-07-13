@@ -1,0 +1,29 @@
+<% provide :title, "Lv.5 使用者清單" %>
+
+<h1>使用者清單</h1>
+<h3><%= notice %></h3>
+<%= form_tag '/overall/delete' do %>
+<div class="col-sm-12" style="padding: 0 10px;">
+  <table class="table" data-toggle="table">
+    <thead>
+      <tr>
+	<td><%= submit_tag "刪除", data: {confirm: "確認刪除？"}, class:"btn btn-danger btn-xs" %></td>
+	<td>帳號</td>
+        <td>Email</td>
+	<td>生日</td>
+	<td>狀態</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @overalls.each do |overall| %>
+      <tr>
+	<td><%= check_box_tag 'delete[]', overall.id %></td>
+        <td><%= overall.name %></td>
+	<td><%= overall.birthday %></td>
+	<td><%= overall.password %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "/overall/members", to: "overall#list"
   get "/overall/success", to: "overall#success"
   post "/overall/new", to: "overall#reg"
-  post "/overall/authorize/:id", to: "overall#authorize"
+  resources :activations, only: [:edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -25,7 +25,7 @@ class OverallController < ApplicationController
   def reg
 	  @overall = Overall.new(reg_params)
 	  if @overall.save
-		  overaccountMailer.say_hello_to(@overall).deliver_now
+		  DmMailer.say_hello_to(@overall).deliver_now
 		  redirect_to "/overall/success"
 	  else
 		  render "/overall/new", layout: "table", notice: "請確認Email格式是否有誤，謝謝！"
