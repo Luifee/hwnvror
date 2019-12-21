@@ -11,7 +11,17 @@ class OverallController < ApplicationController
 
   def new
 	  @overall = Overall.new
+	  respond_to do |format|
+		  if @overall.save
+			  UserMailer.welcome_email(@overall).deliver_later
+			  format.html { redirect_to(@overall, notice: '帳號建立成功') }
+			  format.json { render json: @overall, status: :created, location: @overall }
+			  format.html { render action: 'new' }
+			  format.json { render json: @overall.errors, status: :unprocessable_entity }
+		  end
+	  end
           render layout: "datepicker"
+
   end
 
   def list

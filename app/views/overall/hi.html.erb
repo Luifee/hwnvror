@@ -1,8 +1,9 @@
 <% provide :title, "Lv.5 - 全端挑戰" %>
 
 <br />
-<h2>你好！<%= session[:name] %></h2>
+<h2>你好！<%= session[:nickname] %>，很高興再次見到你。</h2>
 <p>
+  <%= link_to('登出', '/users/sign_out', method: :delete) %>
   <%= form_tag('/site01/del') do %>
   <%= submit_tag("刪除帳號", data: {confirm: "確定要清除帳號資訊？（刪除後無法恢復）"}) %>
 <% end %>

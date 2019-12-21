@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "welcome#index"
   get "/say", to: "welcome#say"
 
@@ -24,13 +25,16 @@ Rails.application.routes.draw do
   post "/sqls", to: "sqls#create"
   post "/sqls/delete", to: "sqls#delete"
 
+  get "/site", to: "site#index"
+  get "/site/test", to: "site#test"
+  get "/site/send_email", to: "site#send_email"
+
   get "/overall", to: "overall#index"
   get "/overall/new", to: "overall#new"
   get "/overall/hi", to: "overall#hi"
   get "/overall/members", to: "overall#list"
   get "/overall/success", to: "overall#success"
   post "/overall/new", to: "overall#reg"
-  resources :activations, only: [:edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
