@@ -2,7 +2,7 @@
 
 <font size="+1">
 	<table class='table'>
-		<tr><td>你好! 新朋友<br />請先<%= link_to "註冊帳號", "/users/sign_up" %>，才能使用本站的完整功能：）</td></tr>
+		<tr><td>你好! 新朋友<br />請先<%= link_to "註冊帳號", "/overall/new" %>，才能使用本站的完整功能：）</td></tr>
 		<tr><td>若已有帳號，請登入：<br />
 				<%= form_tag('/overall') do %>
 					電子信箱<br /><%= text_field_tag(:email) %><br />
