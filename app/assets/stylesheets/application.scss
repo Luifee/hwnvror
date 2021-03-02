@@ -1,3 +1,8 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 @import "bootstrap-datepicker";
+
+.container {
+	margin: auto;
+	padding: 5%;
+}

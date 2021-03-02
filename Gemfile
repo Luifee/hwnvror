@@ -73,3 +73,5 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-table-rails', '~> 1.8', '>= 1.8.1'
 
 gem "actionview", ">= 5.2.2.1"
+
+gem "activerecord", ">= 5.2.4.5"
